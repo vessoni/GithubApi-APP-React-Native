@@ -27,7 +27,7 @@ export const SubmitButton = styled(RectButton)`
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  background: #7159c1;
+  background: #23b283;
   margin-left: 10px;
   padding: 0 12px;
 `;
@@ -72,7 +72,7 @@ export const ProfileButton = styled(RectButton)`
   margin-top: 10px;
   align-self: stretch;
   border-radius: 4px;
-  background: #7159c1;
+  background: #23b283;
   justify-content: center;
   align-items: center;
   height: 36px;
