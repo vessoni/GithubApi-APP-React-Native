@@ -35,9 +35,10 @@ export default class User extends Component {
   state = {
     stars: [],
     page: 1,
-    perPage: 7,
+    perPage: 5,
     loading: false,
     loadingStared: false,
+    refreshing: false,
   };
 
   async componentDidMount() {
@@ -54,6 +55,7 @@ export default class User extends Component {
       stars: response.data,
       page: page + 1,
       loading: false,
+      refreshing: false,
     });
   }
 
@@ -94,9 +96,17 @@ export default class User extends Component {
     navigation.navigate('WebGit', { webgit });
   };
 
+  refreshList = async () => {
+    await this.setState({
+      page: 1,
+      refreshing: false,
+    });
+    this.componentDidMount();
+  };
+
   render() {
     const { navigation } = this.props;
-    const { stars, loading } = this.state;
+    const { stars, loading, refreshing } = this.state;
     const user = navigation.getParam('user');
 
     return (
@@ -116,6 +126,8 @@ export default class User extends Component {
             onEndReached={this.loadRepositoryStars}
             onEndReachedThreshold={0.1}
             ListFooterComponent={this.renderFooter}
+            onRefresh={this.refreshList}
+            refreshing={refreshing}
             keyExtractor={star => String(star.id)}
             renderItem={({ item }) => (
               <Starred>
