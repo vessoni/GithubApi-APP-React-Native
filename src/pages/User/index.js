@@ -45,7 +45,6 @@ export default class User extends Component {
     const { stars } = this.state;
     const user = navigation.getParam('user');
 
-    console.tron.log(user);
     return (
       <Container>
         <Header>
