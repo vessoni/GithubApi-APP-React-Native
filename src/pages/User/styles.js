@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   flex: 1;
@@ -80,4 +81,13 @@ export const Loading = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
+`;
+
+export const GitButton = styled(RectButton)`
+  background: #23b283;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  width: 32px;
+  border-radius: 16px;
 `;
